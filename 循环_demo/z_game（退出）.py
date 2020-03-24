@@ -12,7 +12,7 @@ while True:
 		player=int(input('enter your choose: '))
 		cp=random.randint(0,2)
 		#.randint生成整数
-		if (player==0 and cp==2) or (player==1 and cp==0)or  (player==2 and cp ==1):	
+		if (player==0 and cp==2) or (player==1 and cp==0) or  (player==2 and cp ==1):	
 			print('win win')
 		elif player==cp:
 			print("agine")
