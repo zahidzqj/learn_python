@@ -11,5 +11,15 @@ class Solution:
         return target
 
 a = Solution()
-re=a.Fibonacci(6)
+re=a.Fibonacci(5)
 print(re)
+
+def fib(num):
+    if num==1:
+        return 1
+    if num==2:
+        return 1
+    else:
+        return fib(num-2)+fib(num-1)
+result = fib(5)
+print(result)

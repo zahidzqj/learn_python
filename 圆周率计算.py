@@ -15,6 +15,7 @@ DARTS = 1000*1000
 #撒点的数量1000000
 hits = 0.0
 #在圆内的点数
+
 start = perf_counter()
 #开始计时
 for i in range(1, DARTS+1):
