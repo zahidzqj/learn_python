@@ -15,12 +15,12 @@ class Solution:
             num2 = target
             target = num1 + num2
         return target
-
-
 a = Solution()
 re=a.jumpFloor(5)
 print(re)
-# -*- coding:utf-8 -*-
+
+
+# 变态挑台阶，一次挑的阶数随意
 class Solution1:
     def jumpFloorII(self, number):
         # write code here
@@ -28,3 +28,4 @@ class Solution1:
 a = Solution1()
 jump1=a.jumpFloorII(5)
 print(jump1)
+

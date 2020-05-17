@@ -17,4 +17,4 @@ class Solution:
             n = (n-1)& n
         return count
 a = Solution()
-print(a.NumberOf1(3))
+print(a.NumberOf1(2))
