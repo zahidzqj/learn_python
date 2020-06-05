@@ -245,5 +245,136 @@ class Solution:
         return array
 ```
 
+## 14.链表中的倒数第K个节点
 
+输入一个链表，输出该链表中倒数第k个结点。
+
+**思路：**假设链表中的节点数大于等于k个，那么一定会存在倒数第k个节点，首先使用一个快指针先往前走k步，然后两个指针每次走一步，两个指针之间始终有k的距离，当快指针走到末尾时，慢指针所在的位置就是倒数第k个节点。
+
+**代码:**
+
+```python
+class Solution:
+    def FindKthToTail(self, head, k):
+        if not head or k <=0:
+            return None
+        p = q = head
+        t = 0
+        while p and t < k:
+            p = p.next
+            t = t+1
+        if t < k:
+            return None
+        while p != None:
+            p = p.next
+            q = q.next
+        return q
+```
+
+## 28.数组中出现次数超过一半的数字
+
+数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+
+思路：直接用词典进行存储，然后查看数值大小
+
+**代码:**
+
+```Python
+class Solution:
+    def MoreThanHalfNum_Solution(self, numbers):
+
+        num_dict = {}
+        lenght = len(numbers)
+        result = 0
+        for num in numbers:
+            if num in num_dict:
+            	num_dict[num] += 1
+            else:
+            	num_dict[num] = 1
+            #num_dict[num] = num_dict.get(num,0)+1
+            # try:
+            #     num_dict[num] = num_dict[num] + 1
+            # except:
+            #     num_dict[num] = 1
+
+        for key, values in num_dict.items():
+            if values > lenght//2:
+                result = key
+        return result
+```
+
+### 29.最小的k个数：
+
+排序然后取前k个：
+
+**代码:**
+
+```python
+class Solution:
+    def GetLeastNumbers_Solution(self, tinput, k):
+        # write code here
+        if k > len(tinput):
+            return []
+        tinput = sorted(tinput)
+        return tinput[:k]
+```
+
+## 30.连续子数组的最大和
+
+给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
+示例:输入 [-2,1,-3,4,-1,2,1,-5,4],输出: 6
+
+解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+
+**思路：**如果数组里所有的整数都是负数，那么选择最大的数即可，因为越累加越小。
+
+正负数都有的情况，需要两个变量，一个是*global_max,从全局来看，每次最大的是什么组合，另一个是local_max*，和*global_max*相比，更新*global_max。*
+
+**代码:**
+
+```python
+class Solution(object):
+    def maxSubArray(self, nums):
+
+        if max(nums) < 0:
+            return max(nums)
+     
+        local_max, global_max = 0, 0
+        for i in nums:
+            local_max = max(0, local_max + i)
+            global_max = max(global_max, local_max)
+        return global_max
+```
+
+或者暴力求解：
+
+```python
+class Solution:
+    def FindGreatestSumOfSubArray(self, array):
+        maxsum = -1e19
+        for i in range(len(array)-1):
+            for j in range(i+1, len(array)+1):
+                maxsum = max(maxsum, sum(array[i:j]))
+        return maxsum
+```
+
+## 31.整数中1出现的次数
+
+遍历1到n，然后求包含1的整数个数，对10取余得到个位数，然后依次除以10。
+
+**代码:**
+
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def NumberOf1Between1AndN_Solution(self, n):
+        result = 0
+        for num in range(1,n+1):
+            while num != 0:
+                if num%10 == 1:
+                    result += 1
+                num = num//10
+        return result
+```
 
