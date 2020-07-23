@@ -14,9 +14,9 @@
 #test1()
 #test2()
 
+#测试多个文件调用
 import sys
 sys.path.append('src')
-#测试多个文件调用
 from src import test
 test.test1()
 

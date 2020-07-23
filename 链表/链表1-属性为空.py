@@ -2,6 +2,7 @@
 
 class IntList(object):
 	"""docstring for IntList"""
+	expansion = 1
 	def __init__(self):
 		self.first = None
 		self.rest = None
@@ -20,3 +21,4 @@ l2.rest = l3
 print(l1.first)#l1.first
 print(l1.rest.first)#l2.first
 print(l1.rest.rest.first)#l3.first
+#print(IntList.expansion)
